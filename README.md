@@ -80,7 +80,7 @@ The application uses BLoC (Business Logic Component) pattern for state managemen
 - Works well with clean architecture
 
 # BLoC Implementation Per Module
-
+```bash
 AuthBloc - Manages user authentication
 - Events: LoginEvent, LogoutEvent, CheckAuthStatusEvent
 - States: AuthInitial, AuthLoading, Authenticated, Unauthenticated, AuthError
@@ -103,22 +103,24 @@ ReportBloc - Handles report generation and filtering
 
 Dependencies are registered using `get_it` package in `injection_container.dart`.
 
+```
+
 
 # Firebase Collections (API Endpoints)
 
 Since the backend uses Firebase Firestore, all data operations are performed on these collections:
 
 # Master Data Collections (Pre-seeded)
-
+```bash
 | Collection         | Fields         | Description 
 
 | customerAreas      | id, name       | Dropdown options for customer areas 
 | customerCategories | id, name       | Dropdown options for customer types 
 | productBrands      | id, name       | Dropdown options for product brands
 | productCategories  | id, name       | Dropdown options for product categories 
-
+```
 ### Transaction Collections (Created via App)
-
+```bash
 | Collection       | Fields                                                          
 
 | users            | id, name, email, password                                                                             - User login credentials
@@ -126,10 +128,10 @@ Since the backend uses Firebase Firestore, all data operations are performed on 
 | products         | id, name, categoryId, brandId, purchaseRate, salesRate, imageBase64, createdAt                        - Product master records 
 | sales            | id, invoiceNo, date, customerId, customerName, customerAddress, totalQuantity, totalAmount, createdAt - Invoice headers 
 | sales/{id}/items | id, sno, productId, productName, quantity, rate, discount, amount                                     - Invoice line items (subcollection) 
-
+```
 
 # Project Structure
-
+```bash
 lib/
 │
 ├── main.dart
@@ -324,7 +326,7 @@ lib/
             │   └── report_state.dart
             └── pages/
                 └── reports_page.dart
-
+```
 
 # Application Modules
 
